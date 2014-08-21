@@ -107,6 +107,12 @@ END
   echo "\$conf['file_private_path'] = \$src['OPENSHIFT_DATA_DIR'] . 'private/';" >> ${DRUPAL_SETTINGS}
   echo "\$conf['file_temporary_path'] = \$src['OPENSHIFT_TMP_DIR'] . 'drupal/';" >> ${DRUPAL_SETTINGS}
 
+  # enable locale module and add sv_SE lang
+  drush -y en locale
+  drush -y dl drush_language
+  drush -y language-add sv
+  drush -y language-default sv
+
   popd
   echo
   echo "Drupal is now configured"

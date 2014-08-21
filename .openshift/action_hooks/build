@@ -89,3 +89,12 @@ then
   echo "ERROR: Unable to link the PHP directory, as the current Drupal instance is not a valid directory."
   exit 8
 fi
+
+
+#
+# Copy profile translations 
+#
+if [ -d "${OPENSHIFT_REPO_DIR}/.openshift/install_profiles/standard/translations/" ]
+then
+  cp ${OPENSHIFT_REPO_DIR}.openshift/install_profiles/standard/translations/*.po ${OPENSHIFT_REPO_DIR}php/profiles/standard/translations/
+fi
